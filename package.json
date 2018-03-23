@@ -1,0 +1,46 @@
+{
+  "name": "vue-highlighter",
+  "version": "0.0.0",
+  "description": "Vue component for highlight multiple istances of a word",
+  "repository": {
+    "url": "remeic/vue-highlighter",
+    "type": "git"
+  },
+  "main": "dist/vue-highlighter.cjs.js",
+  "files": ["dist"],
+  "scripts": {
+    "prepublishOnly": "npm test && npm run build",
+    "lint": "eslint . --ext .js --ext .vue",
+    "test": "npm run lint && tyu",
+    "build": "bili",
+    "example": "poi",
+    "build:example": "poi build"
+  },
+  "author": {
+    "name": "Giulio Fagioli",
+    "email": "fagioli.giulio@gmail.com"
+  },
+  "license": "MIT",
+  "poi": {
+    "entry": "example/index.js",
+    "dist": "example/dist",
+    "homepage": "./"
+  },
+  "bili": {
+    "format": ["cjs", "umd"],
+    "name": "vue-highlighter"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:vue/recommended"
+    ]
+  },
+  "devDependencies": {
+    "poi": "^9.3.10",
+    "bili": "^1.3.3",
+    "tyu": "^1.0.0",
+    "vue-test-utils": "^1.0.0-beta.9",
+    "eslint": "^4.14.0",
+    "eslint-plugin-vue": "^4.0.1"
+  }
+}
