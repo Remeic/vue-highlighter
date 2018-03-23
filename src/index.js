@@ -16,7 +16,10 @@ function highlight(word, el) {
 
 export const vueHighlighter = {
   bind(el, binding, vnode) {
-    
+    content = el.innerHTML
+     if (binding.arg == "word") {
+      el.innerHTML = highlight(binding.value, el)
+     }
   },
   update(el, binding, vnode){
 
