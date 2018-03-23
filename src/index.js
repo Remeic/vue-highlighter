@@ -2,13 +2,21 @@ import Vue from "vue"
 
 let content = undefined
 
-function highlight(word) {
-  
+function highlight(word, el) {
+  const span = "<span style='padding:0px 5px; background-color:red; color:black'>"
+  const spanEnd = "</span>"
+  let words = content.split(" ")
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] == word) {
+      words[i] = span + words[i] + spanEnd
+    }
+  }
+  return words.join(" ")
 }
 
 export const vueHighlighter = {
   bind(el, binding, vnode) {
-
+    
   },
   update(el, binding, vnode){
 
