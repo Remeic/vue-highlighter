@@ -1,8 +1,8 @@
 import Vue from "vue"
 
-let content = undefined
+let originalContent = undefined
 
-function highlight(word, el) {
+function highlight(content, word, el) {
   const span = "<span style='padding:0px 5px; background-color:red; color:black'>"
   const spanEnd = "</span>"
   let words = content.split(" ")
@@ -16,16 +16,16 @@ function highlight(word, el) {
 
 export const vueHighlighter = {
   bind(el, binding, vnode) {
-    content = el.innerHTML
+    originalContent = el.innerHTML
      if (binding.arg == "word") {
-      el.innerHTML = highlight(binding.value, el)
+      el.innerHTML = highlight(originalContent, binding.value, el)
      }
   },
-  update(el, binding, vnode){
-
+  update(el, binding, vnode, oldVnode){
+    el.innerHTML = highlight(binding.value, el)
   },
   unbind(el, binding, vnode){
-
+    el.innerHTML = originalContent
   },
 }
 
