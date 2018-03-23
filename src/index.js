@@ -1,5 +1,11 @@
 import Vue from "vue"
 
+let content = undefined
+
+function highlight(word) {
+  
+}
+
 export const vueHighlighter = {
   bind(el, binding, vnode) {
 
