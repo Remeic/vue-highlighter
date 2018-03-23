@@ -8,11 +8,8 @@ export const vueHighlighter = {
 
   },
   unbind(el, binding, vnode){
-    
+
   },
-  hilight: function (word) {
-    
-  }
 }
 
 Vue.directive("highlight", vueHighlighter)
