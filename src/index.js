@@ -3,7 +3,7 @@ import Vue from "vue"
 let originalContent = undefined
 
 function highlight(content, word, el) {
-  const span = "<span style='padding:0px 5px; background-color:red; color:black'>"
+  const span = "<span style='padding:0px 5px; background-color:#009688; color:white'>"
   const spanEnd = "</span>"
   let words = content.split(" ")
   for (let i = 0; i < words.length; i++) {
