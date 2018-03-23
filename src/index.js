@@ -1,7 +1,18 @@
-export default {
-  name: 'foo-bar',
+import Vue from "vue"
 
-  render(h) {
-    return h('h1', null, ['my component'])
+export const vueHighlighter = {
+  bind(el, binding, vnode) {
+
+  },
+  update(el, binding, vnode){
+
+  },
+  unbind(el, binding, vnode){
+    
+  },
+  hilight: function (word) {
+    
   }
 }
+
+Vue.directive("highlight", vueHighlighter)
