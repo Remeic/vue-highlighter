@@ -1,5 +1,7 @@
 # vue-highlighter
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Remeic/vue-highlighter.svg)](https://greenkeeper.io/)
+
 [![NPM version](https://img.shields.io/npm/v/vue-highlighter.svg?style=flat)](https://npmjs.com/package/vue-highlighter) [![NPM downloads](https://img.shields.io/npm/dm/vue-highlighter.svg?style=flat)](https://npmjs.com/package/vue-highlighter) [![CircleCI](https://circleci.com/gh/remeic/vue-highlighter/tree/master.svg?style=shield)](https://circleci.com/gh/remeic/vue-highlighter/tree/master)
 
 Vue component for highlight multiple istances of a word
