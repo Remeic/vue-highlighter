@@ -1,7 +1,7 @@
 {
   "name": "vue-highlighter",
-  "version": "0.0.0",
-  "description": "Vue component for highlight multiple istances of a word",
+  "version": "1.0.0",
+  "description": "Vue directive for highlight multiple istances of a word",
   "repository": {
     "url": "remeic/vue-highlighter",
     "type": "git"
