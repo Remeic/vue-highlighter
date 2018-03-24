@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <foo-bar />
+    <p v-highlight:word="'Alessandra'">I love Alessandra</p>
   </div>
 </template>
 
 <script>
-import FooBar from '../src'
+import vueHighlighter from '../src/index'
 
 export default {
-  components: {
-    FooBar
+  directive: {
+    vueHighlighter
   }
 }
 </script>
