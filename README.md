@@ -16,7 +16,7 @@ CDN: [UNPKG](https://unpkg.com/vue-highlighter/) | [jsDelivr](https://cdn.jsdeli
 
 ```vue
 <template>
-  <p v-hightlight:word="'Beatles'">I love Beatles</p>
+  <p v-highlight:word="'Alessandra'">I love Alessandra</p>
 </template>
 
 <script>
