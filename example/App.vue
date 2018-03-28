@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <p v-highlight:word="'Alessandra'">I love Alessandra</p>
+    <p v-highlight:word="word">{{ text }}</p>
   </div>
 </template>
 
@@ -8,6 +8,12 @@
 import vueHighlighter from '../src/index'
 
 export default {
+  data: ()=>{
+    return {
+      text: 'I love Alessandra',
+      word: 'Alessandra'
+    }
+  },
   directive: {
     vueHighlighter
   }
