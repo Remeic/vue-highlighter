@@ -14,7 +14,7 @@ function highlight(content, word) {
   return words.join(" ")
 }
 
-export const vueHighlighter = {
+const vueHighlighter = {
   bind(el, binding, vnode) {
     originalContent = el.innerHTML
      if (binding.arg == "word") {
@@ -30,3 +30,5 @@ export const vueHighlighter = {
 }
 
 Vue.directive("highlight", vueHighlighter)
+
+export default vueHighlighter;
