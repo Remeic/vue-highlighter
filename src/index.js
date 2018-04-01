@@ -22,7 +22,7 @@ const vueHighlighter = {
      }
   },
   update(el, binding, vnode, oldVnode){
-    el.innerHTML = highlight(el.innerText, binding.value)
+    el.innerHTML = highlight(el.textContent, binding.value)
   },
   unbind(el, binding, vnode){
     el.innerHTML = originalContent
