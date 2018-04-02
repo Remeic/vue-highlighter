@@ -6,7 +6,7 @@ import vueHighlighter from '.';
 test('it works', () => {
 
   const Component = {
-    template: '<p v-highlight:word="word">Hello, World</p>'
+    template: '<p v-highlight:word="word">Hello World</p>'
   }
 
   const localVue = createLocalVue()
@@ -19,8 +19,16 @@ test('it works', () => {
       word: ''
     },
   })
-  console.log(wrapper.html());
+  
+  expect(wrapper.html()).toBe('<p>Hello World</p>')
   wrapper.setData({word: "World"})
-  console.log(wrapper.html());
-    
+  expect(wrapper.html()).toBe(
+    '<p>Hello <span style=\"padding:0px 5px; background-color:#009688; color:white\">World</span></p>'
+  )
+  wrapper.setData({word: "Hello"})
+  expect(wrapper.html()).toBe(
+    '<p><span style="padding:0px 5px; background-color:#009688; color:white">Hello</span> World</p>'
+  )
+  wrapper.setData({word: "Everyone"})
+  expect(wrapper.html()).toBe('<p>Hello World</p>')
 })
