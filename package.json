@@ -1,6 +1,6 @@
 {
   "name": "vue-highlighter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Vue directive for highlight multiple istances of a word",
   "keywords": [
     "vue","highlight","word","library","directive","vue-highlight","evidence","mark"

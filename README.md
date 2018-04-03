@@ -1,6 +1,6 @@
 # vue-highlighter
 
-[![NPM version](https://img.shields.io/npm/v/vue-highlighter.svg?style=flat)](https://npmjs.com/package/vue-highlighter) [![NPM downloads](https://img.shields.io/npm/dm/vue-highlighter.svg?style=flat)](https://npmjs.com/package/vue-highlighter) [![CircleCI](https://circleci.com/gh/remeic/vue-highlighter/tree/master.svg?style=shield)](https://circleci.com/gh/remeic/vue-highlighter/tree/master)
+[![NPM version](https://img.shields.io/npm/v/vue-highlighter.svg?style=flat)](https://npmjs.com/package/vue-highlighter) [![NPM downloads](https://img.shields.io/npm/dm/vue-highlighter.svg?style=flat)](https://npmjs.com/package/vue-highlighter) [![Build Status](https://travis-ci.org/Remeic/vue-highlighter.svg?branch=master)](https://travis-ci.org/Remeic/vue-highlighter)
 
 Vue directive for highlight multiple istances of a word
 
