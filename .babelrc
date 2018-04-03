@@ -1,5 +1,10 @@
 {
   "presets": [
     "poi"
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": [ "istanbul" ]
+    }
+  }
 }
