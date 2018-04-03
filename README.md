@@ -30,6 +30,11 @@ export default {
 </script>
 ```
 
+### Contributor
+
+Thanks to [Andrea Stagi](https://github.com/astagi) to help me with troubleshooting ❤️.
+
+
 ## License
 
 MIT &copy; [Giulio Fagioli](https://github.com/remeic)
