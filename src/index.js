@@ -3,15 +3,15 @@ import Vue from "vue"
 let originalContent = undefined
 
 function highlight(content, word) {
-  const span = "<span style='padding:0px 5px; background-color:#009688; color:white'>"
+  const spanStart = "<span style='padding:0px 5px; background-color:#009688; color:white'>"
   const spanEnd = "</span>"
-  let words = content.split(" ")
-  for (let i = 0; i < words.length; i++) {
-    if (words[i] == word) {
-      words[i] = span + words[i] + spanEnd
-    }
+  let result = content
+  if(word != ''){
+    let pattern = "\\b(" + word + ")\\b"
+    let regex = new RegExp(pattern, "g")
+    result = content.replace(regex, spanStart + "$&" + spanEnd)
   }
-  return words.join(" ")
+  return result;
 }
 
 const vueHighlighter = {
