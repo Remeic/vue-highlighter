@@ -29,6 +29,12 @@ export default {
 }
 </script>
 ```
+## Work on
+
+* Paragraph
+* Ul
+* Ol
+* Button 
 
 ### Contributor
 
