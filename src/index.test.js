@@ -6,7 +6,7 @@ import vueHighlighter from '.';
 test('it works', () => {
 
   const Component = {
-    template: '<p v-highlight:word="word">Hello World</p>'
+    template: '<p v-highlight="{ word: word, live: live }">Hello World</p>'
   }
 
   const localVue = createLocalVue()
@@ -16,7 +16,8 @@ test('it works', () => {
   const wrapper = shallow(Component, {
     localVue,
     data: {
-      word: ''
+      word: '',
+      live: false
     },
   })
   

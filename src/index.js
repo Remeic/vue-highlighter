@@ -14,7 +14,6 @@ function selectPattern(word, liveHighlighting) {
 }
 
 function highlight(content, word, patternSelected) {
-  console.log(word)
   const spanStart =
     "<span style='padding:0px 5px; background-color:#009688; color:white'>"
   const spanEnd = "</span>"
@@ -28,33 +27,28 @@ function highlight(content, word, patternSelected) {
 
 const vueHighlighter = {
   bind(el, binding, vnode) {
-    console.log("BIND")
     originalContent = el.innerHTML
     let pattern = ""
     let word = ""
-    if (binding.value.word) {
-      console.log(binding.value.word)
+    if (binding.value.word != undefined) {
       word = binding.value.word
-    } else {
-      word = binding.value
     }
-    if (binding.value.live) {
-      console.log(binding.value.live)
+    if (binding.value.live != undefined) {
       pattern = selectPattern(word, binding.value.live)
     }
-
     el.innerHTML = highlight(originalContent, word, pattern)
 
   },
   update(el, binding, vnode, oldVnode) {
-    console.log('UPDATE')
     let pattern = ""
-    if (binding.arg == "live") {
-      console.log(binding.arg)
-      console.log(binding.value)
-      pattern = selectPattern(binding.value)
+    if (binding.value.live) {
+      pattern = selectPattern(binding.value.word,binding.value.word)
+      el.innerHTML = highlight(el.textContent, binding.value.word, pattern)
     }
-    el.innerHTML = highlight(el.textContent, binding.value,pattern)
+    else{
+      pattern = selectPattern(binding.value.word, binding.value.live)
+      el.innerHTML = highlight(originalContent, binding.value.word, pattern)
+    }    
   },
   unbind(el, binding, vnode) {
     el.innerHTML = originalContent
