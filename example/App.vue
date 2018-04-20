@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <p v-highlight:word="word" v-highlight:live="live" >{{ text }}</p>
+    <p v-highlight="{ word: word, live: live }" >{{ text }}</p>
     <button @click="live = !live">changhe</button>
   </div>
 </template>
