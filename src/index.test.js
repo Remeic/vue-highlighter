@@ -1,5 +1,4 @@
 import { shallow, createLocalVue } from "@vue/test-utils"
-import app from '../example/App'
 
 import vueHighlighter from '.';
 
