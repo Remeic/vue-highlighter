@@ -1,9 +1,15 @@
 <template>
   <div id="app">
-    <p style="padding-left:1rem;" v-highlight="{ word: word, live: live }" >{{ text }}</p>
-    <fieldset style="border: none;">
+    <p v-highlight="{ word: word, live: live }" >{{ text }}</p>
+    <fieldset 
+      style="border: none;">
       <label for="word">Search</label>
-      <input :disabled="!live" type="text" name="word" placeholder="Your word here" v-model="word">
+      <input 
+        v-model="word"
+        :disabled="!live" 
+        type="text" 
+        name="word" 
+        placeholder="Your word here" >
       <br><br>
       <button @click="live = !live">Change Live value to <b>{{ !live }}</b></button>
     </fieldset>
@@ -40,5 +46,10 @@ export default {
     margin-top: 4rem;
     margin-left: 1rem;
   }
+
+  p{
+    padding-left:1rem;
+  }
+
 </style>
 
