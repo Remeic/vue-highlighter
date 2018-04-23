@@ -4,6 +4,8 @@
 
 Vue directive for highlight multiple istances of a word
 
+![Example](https://media.giphy.com/media/YU7J5r4WfnLO0geruD/giphy.gif)
+
 ## Install
 
 ```bash
