@@ -3,7 +3,7 @@ import Vue from "vue"
 let originalContent = undefined
 
 
-function selectPattern(word, liveHighlighting) {
+function selectPattern(word, liveHighlighting = false) {
   let result = ""
   if (!liveHighlighting) {
     result = "\\b(" + word + ")\\b"
