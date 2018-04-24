@@ -63,7 +63,7 @@ export default {
 ```
 
 #### Option
-  Live: Allow to highlight word and substring, by automatically changhe the regex expression <br>
+  **Live**: Allow to highlight word and substring, by automatically changhe the regex expression <br>
   The live attribute is an optional attribute, is set to false by default
   ```js
   data: () => {
@@ -75,7 +75,7 @@ export default {
   }
   ```
 
-  Color: Allow to customize the color of text when highlighted<br>
+  **Color**: Allow to customize the color of text when highlighted<br>
   The color attribute is optional and is set to #fff by default<br>
   color can be HEX or String<br>
 
@@ -91,7 +91,7 @@ export default {
   }
   ```
 
-Background Color: Allow to customize the background color of text when highlighted<br>
+**Background Color**: Allow to customize the background color of text when highlighted<br>
 The bgColor attribute is optional and is set to #009688 by default<br>
 bgColor can be HEX or String
   
