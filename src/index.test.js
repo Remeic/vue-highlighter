@@ -378,3 +378,70 @@ describe('Custom color of background', () => {
     expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:#fff\">Hello</span> World</p>')
   })
 })
+
+
+describe('Custom Text and Background color', () => {
+  const Component = {
+    template: '<p v-highlight="{ word: word, live: live, style: style }">Hello World</p>'
+  }
+
+  const localVue = createLocalVue()
+
+  localVue.directive('highlight', vueHighlighter)
+
+  const wrapper = shallow(Component, {
+    localVue,
+    data: {
+      word: 'Hello',
+      live: true,
+      style: {
+        color: '',
+        bgColor: ''
+      }
+    }
+  })
+
+  it('Default color', () => {
+    expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:#fff\">Hello</span> World</p>')
+  })
+
+  it('Custom color hex', () => {
+    wrapper.setData({
+      style: {
+        color: '#111',
+        bgColor: '#000000'
+      }
+    })
+    expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#000000; color:#111\">Hello</span> World</p>')
+  })
+
+  it('Custom color as word', () => {
+    wrapper.setData({
+      style: {
+        color: 'white',
+        bgColor: 'white'
+      }
+    })
+    expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:white; color:white\">Hello</span> World</p>')
+  })
+
+  it('Wrong custom background color', () => {
+    wrapper.setData({
+      style: {
+        color: '#fee',
+        bgColor: 'e54%'
+      }
+    })
+    expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:#fee\">Hello</span> World</p>')
+  })
+
+  it('Wrong custom text color', () => {
+    wrapper.setData({
+      style: {
+        color: '#e54%',
+        bgColor: '#fee'
+      }
+    })
+    expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#fee; color:#fff\">Hello</span> World</p>')
+  })
+})
