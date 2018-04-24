@@ -264,4 +264,34 @@ describe('Custom color of text',() => {
     })
     expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:#fff\">Hello</span> World</p>')
   })
+
+  it('Change color : wrong to correct', () => {
+    wrapper.setData({
+      style: {
+        color: 'e54%'
+      }
+    })
+    expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:#fff\">Hello</span> World</p>')
+    wrapper.setData({
+      style: {
+        color: '#ffddee'
+      }
+    })
+    expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:#ffddee\">Hello</span> World</p>')
+  })
+
+  it('Change color : correct to wrong', () => {
+    wrapper.setData({
+      style: {
+        color: '#ffddee'
+      }
+    })
+    expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:#ffddee\">Hello</span> World</p>')
+    wrapper.setData({
+      style: {
+        color: 'e54%'
+      }
+    })
+    expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:#fff\">Hello</span> World</p>')
+  })
 })
