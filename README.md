@@ -1,6 +1,7 @@
 # vue-highlighter
 
 [![NPM version](https://img.shields.io/npm/v/vue-highlighter.svg?style=flat)](https://npmjs.com/package/vue-highlighter) [![NPM downloads](https://img.shields.io/npm/dm/vue-highlighter.svg?style=flat)](https://npmjs.com/package/vue-highlighter) [![Build Status](https://travis-ci.org/Remeic/vue-highlighter.svg?branch=master)](https://travis-ci.org/Remeic/vue-highlighter)
+[![codecov](https://codecov.io/gh/Remeic/vue-highlighter/branch/master/graph/badge.svg)](https://codecov.io/gh/Remeic/vue-highlighter)
 
 Vue directive for highlight multiple istances of a word
 
