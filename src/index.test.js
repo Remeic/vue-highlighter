@@ -256,7 +256,7 @@ describe('Custom color of text',() => {
     expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:white\">Hello</span> World</p>')
   })
 
-  it('Wrong custom color', () => {
+  it('Wrong custom text color', () => {
     wrapper.setData({ 
       style: {
         color: 'e54%'
@@ -290,6 +290,89 @@ describe('Custom color of text',() => {
     wrapper.setData({
       style: {
         color: 'e54%'
+      }
+    })
+    expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:#fff\">Hello</span> World</p>')
+  })
+})
+
+
+describe('Custom color of background', () => {
+  const Component = {
+    template: '<p v-highlight="{ word: word, live: live, style: style }">Hello World</p>'
+  }
+
+  const localVue = createLocalVue()
+
+  localVue.directive('highlight', vueHighlighter)
+
+  const wrapper = shallow(Component, {
+    localVue,
+    data: {
+      word: 'Hello',
+      live: true,
+      style: {
+        bgColor: ''
+      }
+    }
+  })
+
+  it('Default color of background', () => {
+    expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:#fff\">Hello</span> World</p>')
+  })
+
+  it('Custom color of background as hex', () => {
+    wrapper.setData({
+      style: {
+        bgColor: '#000000'
+      }
+    })
+    expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#000000; color:#fff\">Hello</span> World</p>')
+  })
+
+  it('Custom color of background as word', () => {
+    wrapper.setData({
+      style: {
+        bgColor: 'white'
+      }
+    })
+    expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:white; color:#fff\">Hello</span> World</p>')
+  })
+
+  it('Wrong custom background color', () => {
+    wrapper.setData({
+      style: {
+        bgColor: 'e54%'
+      }
+    })
+    expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:#fff\">Hello</span> World</p>')
+  })
+
+  it('Change color : wrong to correct', () => {
+    wrapper.setData({
+      style: {
+        bgColor: 'e54%'
+      }
+    })
+    expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:#fff\">Hello</span> World</p>')
+    wrapper.setData({
+      style: {
+        bgColor: '#ffddee'
+      }
+    })
+    expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#ffddee; color:#fff\">Hello</span> World</p>')
+  })
+
+  it('Change color : correct to wrong', () => {
+    wrapper.setData({
+      style: {
+        bgColor: '#ffddee'
+      }
+    })
+    expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#ffddee; color:#fff\">Hello</span> World</p>')
+    wrapper.setData({
+      style: {
+        bgColor: 'e54%'
       }
     })
     expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:#fff\">Hello</span> World</p>')
