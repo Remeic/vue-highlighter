@@ -59,6 +59,7 @@
     "eslint": "^4.14.0",
     "eslint-plugin-vue": "^4.0.1",
     "poi": "^9.3.10",
+    "sinon": "^4.5.0",
     "tyu": "^1.0.0",
     "vue-test-utils": "^1.0.0-beta.9"
   },

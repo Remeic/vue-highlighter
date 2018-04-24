@@ -1,7 +1,7 @@
 import { shallow, createLocalVue } from "@vue/test-utils"
 
 import vueHighlighter from '.';
-
+import sinon from 'sinon'
 
 describe('Default Behaviour',() => {
   const Component = {
@@ -183,6 +183,33 @@ describe('Live Behaviour - True -> False', () => {
     expect(wrapper.html()).toBe('<p>H<span style=\"padding:0px 5px; background-color:#009688; color:white\">ell</span>o World</p>')
     wrapper.setData({ live: false })
     expect(wrapper.html()).toBe('<p>Hello World</p>')
+  })
+
+})
+
+describe('Unbind Directive',() => {
+  const Component = {
+    template: '<p v-highlight="{ word: word, live: live }">Hello World</p>'
+  }
+
+  const localVue = createLocalVue()
+
+  localVue.directive('highlight', vueHighlighter)
+  const spy = sinon.stub()
+
+  const wrapper = shallow(Component, {
+    localVue,
+    data: {
+      word: 'Hello',
+      live: true
+    },
+    destroyed() {
+      spy()
+    }
+  }).destroy()
+
+  it('Method called on destroy', () => {
+    expect(spy.calledOnce).toBe(true)
   })
 
 })
