@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <p v-highlight="{ word: word, live: live }" >{{ text }}</p>
+    <p v-highlight="{ word: word, live: live, style: style }" >{{ text }}</p>
     <fieldset 
       style="border: none;">
       <label for="word">Search</label>
@@ -25,6 +25,9 @@ export default {
       text: 'I love Alessandra AlessandraAmore',
       word: 'Alessandra',
       live: false,
+      style: {
+        color: '#4286f4'
+      }
     }
   },
   directive: {
