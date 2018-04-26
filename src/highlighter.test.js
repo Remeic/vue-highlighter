@@ -1,6 +1,6 @@
 import { shallow, createLocalVue } from "@vue/test-utils"
 
-import vueHighlighter from '.';
+import vueHighlighter from './highlighter';
 import sinon from 'sinon'
 
 describe('Default Behaviour',() => {
@@ -239,28 +239,28 @@ describe('Custom color of text',() => {
   })
 
   it('Custom color of text as hex', () => {
-    wrapper.setData({ 
+    wrapper.setData({
       style: {
         color: '#000000'
-      } 
+      }
     })
     expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:#000000\">Hello</span> World</p>')
   })
 
   it('Custom color of text as word', () => {
-    wrapper.setData({ 
+    wrapper.setData({
       style: {
         color: 'white'
-      } 
+      }
     })
     expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:white\">Hello</span> World</p>')
   })
 
   it('Wrong custom text color', () => {
-    wrapper.setData({ 
+    wrapper.setData({
       style: {
         color: 'e54%'
-      } 
+      }
     })
     expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:#fff\">Hello</span> World</p>')
   })
