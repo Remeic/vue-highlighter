@@ -3,6 +3,7 @@ import Vue from "vue"
 let originalContent = undefined
 const textColorDefault = '#fff'
 const bgColorDefault = '#009688'
+const paddingDefault= '0px 5px'
 
 function selectPattern(word, liveHighlighting = false) {
   let result = ""
@@ -40,9 +41,18 @@ function testColor(color) {
   return result
 }
 
-function highlight(content, word, color, bgColor, patternSelected) {
+function testPadding(padding) {
+  let result = paddingDefault
+  let isAValidValue = /^(\d+(rem|px|%)\s?){1,4}$/i.test(padding)
+  if (isAValidValue) {
+    result = padding
+  }
+  return result
+}
+
+function highlight(content, word, patternSelected, color, bgColor, padding) {
   const spanStart =
-    "<span style='padding:0px 5px; background-color:"+bgColor+"; color:"+color+"'>"
+    "<span style='padding:" + padding + "; background-color:" + bgColor + "; color:" + color + ";'>"
   const spanEnd = "</span>"
   let result = content
   if (word != "") {
@@ -59,6 +69,7 @@ const vueHighlighter = {
     let word = ''
     let color = textColorDefault
     let bgColor = bgColorDefault
+    let padding = paddingDefault
     if (binding.value.word != undefined) {
       word = binding.value.word
     }
@@ -67,30 +78,29 @@ const vueHighlighter = {
     }
     if(binding.value.style != undefined) {
       color = testTextColor(binding.value.style.color)
-    }
-    if(binding.value.style != undefined) {
       bgColor = testBgColor(binding.value.style.bgColor)
+      padding = testPadding(binding.value.style.padding)
     }
-    el.innerHTML = highlight(originalContent, word, color, bgColor, pattern)
+    el.innerHTML = highlight(originalContent, word, pattern, color, bgColor, padding)
 
   },
   update(el, binding, vnode, oldVnode) {
     let pattern = ''
     let color = textColorDefault
     let bgColor = bgColorDefault
+    let padding = paddingDefault
     if (binding.value.style != undefined) {
       color = testTextColor(binding.value.style.color)
-    }
-    if (binding.value.style != undefined) {
       bgColor = testBgColor(binding.value.style.bgColor)
+      padding = testPadding(binding.value.style.padding)
     }
     if (binding.value.live) {
-      pattern = selectPattern(binding.value.word,binding.value.word)
-      el.innerHTML = highlight(el.textContent, binding.value.word, color, bgColor, pattern)
+      pattern = selectPattern(binding.value.word,binding.value.live)
+      el.innerHTML = highlight(el.textContent, binding.value.word, pattern, color, bgColor, padding)
     }
     else{
-      pattern = selectPattern(binding.value.word, binding.value.live)
-      el.innerHTML = highlight(originalContent, binding.value.word, color, bgColor, pattern)
+      pattern = selectPattern(binding.value.word)
+      el.innerHTML = highlight(originalContent, binding.value.word, pattern, color, bgColor, padding)
     }    
   },
   unbind(el, binding, vnode) {
