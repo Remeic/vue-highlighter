@@ -29,7 +29,7 @@ export default {
       word: 'Alessandra',
       live: false,
       style: {
-        color: '#4286f4'
+        color: 'white'
       }
     }
   }

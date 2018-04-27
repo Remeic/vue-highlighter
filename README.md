@@ -107,6 +107,22 @@ bgColor can be HEX or String
   }
   ```
 
+**Padding**: Allow to customize the padding of text when highlighted<br>
+The padding attribute is optional and is set to 0px 5px by default<br>
+padding is validate if match this requirments: there is at least one number followed by one of this unit of measure ['cm','mm','in','px','pt','pc','em','ex','ch','rem','vw','vh','vmin','vmax','%']
+  
+  ```js
+  data: () => {
+    return {
+      text: 'I love Alessandra',
+      word: 'Alessandra',
+      style: {
+        padding: '4rem 5%'
+      }
+    }
+  }
+  ```
+
 ## Works on
 
 * Paragraph
