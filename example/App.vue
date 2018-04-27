@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     <p v-highlight="{ word: word, live: live, style: style }" >{{ text }}</p>
-    <fieldset 
+    <fieldset
       style="border: none;">
       <label for="word">Search</label>
-      <input 
+      <input
         v-model="word"
-        :disabled="!live" 
-        type="text" 
-        name="word" 
+        :disabled="!live"
+        type="text"
+        name="word"
         placeholder="Your word here" >
       <br><br>
       <button @click="live = !live">Change Live value to <b>{{ !live }}</b></button>
@@ -17,10 +17,13 @@
 </template>
 
 <script>
-import vueHighlighter from '../src/index'
+import { highlight } from '../src/index'
 
 export default {
-  data: ()=>{
+  directives: {
+    highlight
+  },
+  data: () => {
     return {
       text: 'I love Alessandra AlessandraAmore',
       word: 'Alessandra',
@@ -29,9 +32,6 @@ export default {
         color: 'white'
       }
     }
-  },
-  directive: {
-    vueHighlighter
   }
 }
 </script>
@@ -44,7 +44,7 @@ export default {
     border-radius: 4px;
     border: none;
   }
-  
+
   #app{
     margin-top: 4rem;
     margin-left: 1rem;
@@ -55,4 +55,3 @@ export default {
   }
 
 </style>
-
