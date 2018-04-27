@@ -380,6 +380,68 @@ describe('Custom color of background', () => {
 })
 
 
+describe('Custom Padding', () => {
+  const Component = {
+    template: '<p v-highlight="{ word: word, live: live, style: style }">Hello World</p>'
+  }
+
+  const localVue = createLocalVue()
+
+  localVue.directive('highlight', vueHighlighter)
+
+  const wrapper = shallow(Component, {
+    localVue,
+    data: {
+      word: 'Hello',
+      live: true,
+      style: {
+        color: '',
+        bgColor: '',
+        padding:''
+      }
+    }
+  })
+
+  it('Default padding', () => {
+    expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:#fff\">Hello</span> World</p>')
+  })
+
+  it('Custom padding - 1 value', () => {
+    wrapper.setData({
+      style: {
+        padding: '1px'
+      }
+    })
+    expect(wrapper.html()).toBe('<p><span style=\"padding:1px; background-color:#000000; color:#111\">Hello</span> World</p>')
+  })
+
+  it('Custom padding - 2 value', () => {
+    wrapper.setData({
+      style: {
+        padding: '1px 2px'
+      }
+    })
+    expect(wrapper.html()).toBe('<p><span style=\"padding:1px 2px; background-color:white; color:white\">Hello</span> World</p>')
+  })
+
+  it('Custom padding - 3 value', () => {
+    wrapper.setData({
+      style: {
+        padding: '1px 2px 3px'
+      }
+    })
+    expect(wrapper.html()).toBe('<p><span style=\"padding:1px 2px 3px; background-color:white; color:white\">Hello</span> World</p>')
+  })
+
+  it('Custom padding - 4 value', () => {
+    wrapper.setData({
+      style: {
+        padding: '1px 2px 3px 4px'
+      }
+    })
+    expect(wrapper.html()).toBe('<p><span style=\"padding:1px 2px 3px 4px; background-color:#fee; color:#fff\">Hello</span> World</p>')
+  })
+})
 describe('Custom Text and Background color', () => {
   const Component = {
     template: '<p v-highlight="{ word: word, live: live, style: style }">Hello World</p>'
@@ -445,3 +507,5 @@ describe('Custom Text and Background color', () => {
     expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#fee; color:#fff\">Hello</span> World</p>')
   })
 })
+
+
