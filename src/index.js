@@ -43,7 +43,7 @@ function testColor(color) {
 
 function testPadding(padding) {
   let result = paddingDefault
-  let isAValidValue = /^(\d+(rem|px|%)\s?){1,4}$/i.test(padding)
+  let isAValidValue = /^(\d+(cm|mm|in|px|pt|pc|em|ex|ch|rem|vw|vh|vmin|vmax|%)\s?){1,4}$/i.test(padding)
   if (isAValidValue) {
     result = padding
   }
