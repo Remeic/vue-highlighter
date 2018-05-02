@@ -38,7 +38,7 @@ export default {
 
 ***
 
-### Version 2.1.2
+### Version 2.1.2 ( and >= )
 ```vue
 <template>
   <p v-highlight="{ word: word, live: live }" >{{ text }}</p>
