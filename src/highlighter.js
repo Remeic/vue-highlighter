@@ -96,7 +96,7 @@ const vueHighlighter = {
     }
     if (binding.value.live) {
       pattern = selectPattern(binding.value.word,binding.value.live)
-      el.innerHTML = highlight(el.textContent, binding.value.word, pattern, color, bgColor, padding)
+      el.innerHTML = highlight(vnode.children[0].text, binding.value.word, pattern, color, bgColor, padding)
     }
     else{
       pattern = selectPattern(binding.value.word)
