@@ -13,6 +13,24 @@
       <br><br>
       <button @click="live = !live">Change Live value to <b>{{ !live }}</b></button>
     </fieldset>
+    <br>
+    <p v-highlight="{ word: selectedWorList, live: listLive, style: style }" >{{ text }}</p>
+    <fieldset
+      style="border: none;">
+      <label for="word">Search</label>
+      <ul>
+        <li
+          v-for="option in wordListOptions"
+          :key="option.text">
+          <input
+            v-model="option.selected"
+            type="checkbox">
+          <label>{{ option.text }}</label>
+        </li>
+      </ul>
+      <br><br>
+      <button @click="listLive = !listLive">Change Live value to <b>{{ !listLive }}</b></button>
+    </fieldset>
   </div>
 </template>
 
@@ -27,10 +45,23 @@ export default {
     return {
       text: 'I love Alessandra AlessandraAmore',
       word: 'Alessandra',
+      wordList: [],
+      wordListOptions: [
+        {text: 'Alessandra', selected: true},
+        {text: 'I love', selected: true},
+        {text: 'Vue', selected: false},
+        {text: 'Ale', selected: false}
+      ],
       live: false,
+      listLive: false,
       style: {
         color: 'white'
       }
+    }
+  },
+  computed: {
+    selectedWorList() {
+      return this.wordListOptions.filter(w => (w.selected)).map(w => (w.text))
     }
   }
 }
