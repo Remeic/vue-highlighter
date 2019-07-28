@@ -63,6 +63,28 @@ export default {
 ```
 
 #### Option
+  **Word (String)**: The text string to look for and highlight
+  ```js
+  data: () => {
+    return {
+      text: 'I love Alessandra',
+      word: 'Alessandra',
+      live: true,
+    }
+  }
+  ```
+  
+  **Word (Array[String])**: List of text strings to look for and highlight
+  ```js
+  data: () => {
+    return {
+      text: 'I love Alessandra',
+      word: ['I', 'Alessandra'],
+      live: true,
+    }
+  }
+  ```
+  
   **Live**: Allow to highlight word and substring, by automatically changhe the regex expression <br>
   The live attribute is an optional attribute, is set to false by default
   ```js
