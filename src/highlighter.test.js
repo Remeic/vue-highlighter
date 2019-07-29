@@ -187,6 +187,49 @@ describe('Live Behaviour - True -> False', () => {
 
 })
 
+describe('Default Word List Behaviour',() => {
+  const Component = {
+    template: '<p ref="a" v-highlight="{ word: wordList, live: live }">Hello World, highlight me!</p>'
+  }
+
+  const localVue = createLocalVue()
+
+  localVue.directive('highlight', vueHighlighter)
+
+  let wrapper
+  beforeEach(() => {
+    wrapper = shallow(Component, {
+      localVue,
+      data: {
+        wordList: [],
+        live: false
+      }
+    })
+  })
+
+  it('Empty list', () => {
+    wrapper.setData({ wordList: [] })
+    expect(wrapper.html()).toBe('<p>Hello World, highlight me!</p>')
+  })
+
+  it('List with empty word', () => {
+    wrapper.setData({ wordList: [''] })
+    expect(wrapper.html()).toBe('<p>Hello World, highlight me!</p>')
+  })
+
+  it('List of words', () => {
+    wrapper.setData({ wordList: ['Hello', 'World', 'highlight me', 'I\'m not here'] })
+    expect(wrapper.html()).toBe(
+        '<p><span style=\"padding:0px 5px; background-color:#009688; color:#fff;\">Hello</span> <span style=\"padding:0px 5px; background-color:#009688; color:#fff;\">World</span>, <span style=\"padding:0px 5px; background-color:#009688; color:#fff;\">highlight me</span>!</p>'
+    )
+  })
+
+  it('Not contained word', () => {
+    wrapper.setData({ wordList: ['Not', 'Present', 'In', 'List'] })
+    expect(wrapper.html()).toBe('<p>Hello World, highlight me!</p>')
+  })
+})
+
 describe('Unbind Directive',() => {
   const Component = {
     template: '<p v-highlight="{ word: word, live: live }">Hello World</p>'
@@ -239,28 +282,28 @@ describe('Custom color of text',() => {
   })
 
   it('Custom color of text as hex', () => {
-    wrapper.setData({ 
+    wrapper.setData({
       style: {
         color: '#000000'
-      } 
+      }
     })
     expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:#000000;\">Hello</span> World</p>')
   })
 
   it('Custom color of text as word', () => {
-    wrapper.setData({ 
+    wrapper.setData({
       style: {
         color: 'white'
-      } 
+      }
     })
     expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:white;\">Hello</span> World</p>')
   })
 
   it('Wrong custom text color', () => {
-    wrapper.setData({ 
+    wrapper.setData({
       style: {
         color: 'e54%'
-      } 
+      }
     })
     expect(wrapper.html()).toBe('<p><span style=\"padding:0px 5px; background-color:#009688; color:#fff;\">Hello</span> World</p>')
   })

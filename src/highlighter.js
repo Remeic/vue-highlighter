@@ -7,10 +7,11 @@ const paddingDefault= '0px 5px'
 
 function selectPattern(word, liveHighlighting = false) {
   let result = ""
+  let explodedWord = Array.isArray(word) ? word.join('|') : word
   if (!liveHighlighting) {
-    result = "\\b(" + word + ")\\b"
+    result = "\\b(" + explodedWord + ")\\b"
   } else {
-    result = "(" + word + ")"
+    result = "(" + explodedWord + ")"
   }
   return result
 }
@@ -101,7 +102,7 @@ const vueHighlighter = {
     else{
       pattern = selectPattern(binding.value.word)
       el.innerHTML = highlight(originalContent, binding.value.word, pattern, color, bgColor, padding)
-    }    
+    }
   },
   unbind(el, binding, vnode) {
     el.innerHTML = originalContent
