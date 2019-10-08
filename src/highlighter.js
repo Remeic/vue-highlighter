@@ -69,7 +69,7 @@ function testBgColor(color = bgColorDefault){
  */
 function testColor(color) {
   let result = false
-  let isAColor = /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(color)
+  let isAColor = /(^#[0-9A-F]{8}$)|(^#[0-9A-F]{6}$)|(^#[0-9A-F]{4}$)|(^#[0-9A-F]{3}$)/i.test(color)
   let isAString = /^[a-zA-Z]+$/.test(color)
   if(isAColor || isAString){
     result = true
