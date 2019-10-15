@@ -107,7 +107,7 @@ function highlight(content, word, patternSelected, color, bgColor, padding) {
   const spanEnd = "</span>"
   let result = content
   if (word != "") {
-    let regex = new RegExp(patternSelected, "g")
+    let regex = new RegExp(patternSelected, "gi")
     result = content.replace(regex, spanStart + "$&" + spanEnd)
   }
   return result
