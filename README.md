@@ -1,3 +1,5 @@
+<h1 color="red">IMPORTANT</h1>
+At the moment, the code examples do NOT work.  Efforts are underway to update the code snippets and create a working demo site.  Thank you for your patience! 
 # vue-highlighter
 
 [![NPM version](https://img.shields.io/npm/v/vue-highlighter.svg?style=flat)](https://npmjs.com/package/vue-highlighter) [![NPM downloads](https://img.shields.io/npm/dm/vue-highlighter.svg?style=flat)](https://npmjs.com/package/vue-highlighter) [![Build Status](https://travis-ci.org/Remeic/vue-highlighter.svg?branch=master)](https://travis-ci.org/Remeic/vue-highlighter)
