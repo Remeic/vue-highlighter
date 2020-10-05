@@ -1,4 +1,3 @@
-
 import highlight from './highlighter'
 
 const Plugin = {
@@ -8,10 +7,6 @@ const Plugin = {
 }
 
 export default Plugin
-
-export {
-  highlight
-}
 
 // Install by default
 if (typeof window !== 'undefined' && window.Vue) {
