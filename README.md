@@ -1,9 +1,10 @@
 <h1 style="color: red;">IMPORTANT</h1>
 At the moment, the code examples do NOT work.  Efforts are underway to update the code snippets and create a working demo site.  Thank you for your patience!
 
-Current working demo: codesandbox.io/s/working-vuehighlight-demo-g3hyq
+Current working demo: https://codesandbox.io/s/vue-highlighter-demo-r7h27
 
 Notable changes: Vue files are in `main.js` file - the `export default` function has a name attribute, and the data function is `data(){` instead of `data: () => {`.  Furthermore, the main.js file is created and then mounted on an index.html file.  
+
 
 
 
