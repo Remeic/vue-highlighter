@@ -1,5 +1,3 @@
-import Vue from "vue"
-
 let originalContent = undefined
 /**
  * Default color of highlighted texts
